@@ -40,7 +40,10 @@ elif(app_mode=="Prediction"):
     st.header("Model Prediction")
     test_image = st.file_uploader("Choose an Image:")
     if(st.button("Show Image")):
-        st.image(test_image,width=4,use_column_width=True)
+        if test_image is not None:
+            st.image(test_image, width=4, use_container_width=True)
+        else:
+            st.warning("Please upload the image first.")
     #Predict button
     if(st.button("Predict")):
         st.snow()
